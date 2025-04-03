@@ -41,5 +41,8 @@ def listar_usuarios():
     ]
     return jsonify(usuarios_list), 200
 
+import os
+
 if __name__ == '__main__':
-    app.run(debug=True)  # Inicia o servidor Flask em modo de depuração.
+    port = int(os.environ.get('PORT', 5000))  # Obtém a porta da variável de ambiente ou usa 5000 como padrão
+    app.run(host='0.0.0.0', port=port)  # Certifique-se de que a aplicação escuta em 0.0.0.0
